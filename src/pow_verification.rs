@@ -5,7 +5,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 type HashString = String;
 
 // Durée maximale pour laquelle un hash est considéré valide (anti-spam)
-const HASH_VALIDITY_DURATION: u64 = 10; // en secondes
+const HASH_VALIDITY_DURATION: u64 = 100; // en secondes
 
 /// Fonction pour calculer le hash à partir du nonce, des données et du timestamp
 /// Renvoie une `HashString`.
