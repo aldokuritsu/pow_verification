@@ -3,7 +3,7 @@ use std::fmt::Write;
 use std::time::{SystemTime, Duration, UNIX_EPOCH};
 
 // Durée d'expiration pour un hash valide (en secondes)
-const HASH_EXPIRATION: Duration = Duration::new(10, 0); // 10 secondes
+// const HASH_EXPIRATION: Duration = Duration::new(10, 0); // 10 secondes
 
 // Fonction pour générer la preuve de travail (PoW)
 pub fn mine_block(data: &str, pattern: &str, difficulty: usize) -> Result<(), String> {
@@ -22,9 +22,9 @@ pub fn mine_block(data: &str, pattern: &str, difficulty: usize) -> Result<(), St
                 .elapsed()
                 .map_err(|_| "Erreur lors du calcul du temps écoulé".to_string())?;
 
-            if elapsed_time > HASH_EXPIRATION {
-                return Err("Le hash a expiré ! Nonce invalide.".to_string());
-            }
+            // if elapsed_time > HASH_EXPIRATION {
+            //     return Err("Le hash a expiré ! Nonce invalide.".to_string());
+            // }
 
             // Affichage des informations de succès
             display_success_info(pattern, difficulty, timestamp, nonce, &hash_hex, elapsed_time);
